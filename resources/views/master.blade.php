@@ -6,6 +6,8 @@
     <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
     <!-- custom css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css"  href="{{asset('assets/dist/emojionearea.min.css')}}">
+
     <!-- bootstrap css -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
           id="bootstrap-css">
@@ -19,8 +21,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <link rel="stylesheet" href="file/to/path/css/emojionearea.min.css">
-    <script type="text/javascript" src="file/to/path/js/emojionearea.min.js"></script>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{{asset('assets/dist/emojionearea.js')}}"></script>
+<!--    <script type="text/javascript" src="http://mervick.github.io/lib/google-code-prettify/prettify.js"></script>-->
+
 
     <title>
         @if(isset($title))
@@ -293,8 +301,16 @@
 
       </div>
     <!-- jquery core -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#text1").emojioneArea({
+            pickerPosition: "bottom",
+
+        });
+    });
+</script>
+
 
     <!-- bootstrap js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -515,13 +531,6 @@
     }
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("#demo1").emojioneArea({
-            container: "#container",
-            hideSource: false,
-        });
-    });
-</script>
+
 </body>
 </html>

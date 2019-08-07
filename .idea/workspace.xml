@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d2b33e3-dddf-4611-bc6a-61bf7c0119f6" name="Default Changelist" comment="" />
+    <list default="true" id="5d2b33e3-dddf-4611-bc6a-61bf7c0119f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/dist/emojionearea.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/dist/emojionearea.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/dist/emojionearea.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/dist/emojionearea.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/create_manuscript.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/create_manuscript.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,6 +194,7 @@
       <workItem from="1565068272230" duration="3145000" />
       <workItem from="1565153744550" duration="2317000" />
       <workItem from="1565181248601" duration="1297000" />
+      <workItem from="1565189585596" duration="11621000" />
     </task>
     <servers />
   </component>
