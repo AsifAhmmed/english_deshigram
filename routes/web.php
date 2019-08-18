@@ -74,6 +74,9 @@ Route::post('/save-user-extra-information','UserController@saveUserExtraInformat
 Route::get('dm','LoginController@dm');
 Route::get('test','LoginController@test');
 
+Route::get('/location-list','UserController@locationList');
+Route::post('/location-list-search','UserController@locationListSearch');
+Route::post('/location-list-search-save','UserController@locationListSearchSave');
 
 /* Admin Panel Route Start */
 

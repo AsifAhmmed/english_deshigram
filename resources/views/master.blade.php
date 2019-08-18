@@ -222,6 +222,17 @@
                 Target
             </a>
             @endif
+            @if(isset($active_location))
+              <a class="Location active" href="{{URL::to('loction-list')}}">
+                 <span class="sidebar_icon"><img src="{{asset('assets/img/person.png')}}" alt=""></span>
+                   Location
+               </a>
+             @else
+               <a class="Location" href="{{URL::to('location-list')}}">
+                 <span class="sidebar_icon"><img src="{{asset('assets/img/person.png')}}" alt=""></span>
+                    Location
+              </a>
+              @endif
             @if(isset($delivery_setting))
             <a class="Schedule active" href="{{URL::to('delivery-setting')}}">
                 <span class="sidebar_icon"><img src="{{asset('assets/img/calandersetting.png')}}" alt=""></span>
@@ -354,6 +365,41 @@
          });
 
         /* hashtag list serach end*/
+
+        /* Location list serach start*/
+ 
+         $("#location_search").click(function(){
+          var location = $('#location').val();
+
+          $.ajax({
+           url: "{{url('location-list-search')}}",
+           type: "post",
+           data: {"_token": "{{ csrf_token() }}","location":location},
+           beforeSend: function(){
+            // Show image container
+            console.log(location);
+            $("#Load").show();
+           },
+           success: function(response){
+            console.log(response.data);
+            if(response.data == 1){
+              $('#exception_msg').html(response.insta_credential_err);
+            }else if(response.data == 2){
+              $('#exception_msg').html(response.location_err);
+            }
+            else{
+              $('#page-content-wrapper').html(response);
+            }
+           },
+           complete:function(data){
+            // Hide image container
+            $("#Load").hide();
+           }
+          });
+         
+         });
+
+        /* Location list serach end*/
 
 
         /* compare hashtag list serach start*/

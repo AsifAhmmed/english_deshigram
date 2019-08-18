@@ -1525,6 +1525,55 @@ class UserController extends Controller
         }
     }
 
+    public function locationList(){
+
+        if (Auth()->user()) {
+
+            $active_location = 'active';
+            $user_main_content = view('user.location_list',compact('active_location'));
+            return view('master',compact('user_main_content','active_location'));
+            
+        }else{
+            return redirect('user-login');
+        }
+    }
+
+    public function locationListSearch(Request $request){
+        if(Auth::user()){
+            $user_id = Auth::user()->id;
+            $location = $request->location;
+            // $hashtag = $request->search;
+            $user_info = DB::table('users')->select('instagram_username','instagram_password')->where('id',$user_id)->first();
+            if($user_info->instagram_username == NULL || $user_info->instagram_password == NULL){
+                // return back()->with('instagram_error_msg',"You must provide instagram username and password from dashboard");
+                // return redirect('dashboard');
+                return response()->json(['insta_credential_err'=>'Update Instagram username and password from dashboard','data'=>'1']);
+            }
+            $this->ig->login($user_info->instagram_username,$user_info->instagram_password);
+            $rank_token= \InstagramAPI\Signatures::generateUUID();
+            $result = $this->ig->location->findPlaces($location);
+
+            // return response()->json(['data'=> $result]);
+          
+            $obj = json_decode($result);
+            if($obj->items == null){
+                // return redirect('create-destination')->with('hashtag_found_msg','この＃キーワード検索でポストがありません。')->withInput();
+                return response()->json(['location_err'=>'No location found','data'=>'2']);
+                
+            }
+
+            $results = $obj->items;
+            // return view('user.ajax_search',compact('results','hashtag'));
+            
+            return view('user.ajax_location_list',compact('results','location'));
+            
+
+        }else{
+            return redirect ('user-login');
+        }
+    }
+
+
     public function index()
     {
         //
