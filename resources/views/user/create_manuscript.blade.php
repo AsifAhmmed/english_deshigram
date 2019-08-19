@@ -37,10 +37,11 @@
                     <label for="temp_regi">
                         Text Registration
                     </label>
-                    <textarea class="form-control" id="demo1" name="description" maxlength="120" placeholder="Please Fill in The Delivery Script." rows="5"></textarea>
+                    <textarea class="form-control" id="text1" name="description" maxlength="120" placeholder="Please Fill in The Delivery Script." rows="5"></textarea>
             <span class="pull-right label label-default" id="count_message"></span>                 
                 </div>
             </div>
+
             <div class="img_reg_upload">
                 <div class="input_box">
                     <label for="file">                          
